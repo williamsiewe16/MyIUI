@@ -89,8 +89,8 @@ module.exports = {
         console.log('paypal')
         paypal.configure({
             'mode': 'sandbox', //sandbox or live
-            'client_id': 'AbRhkhfHLhUt772ktcE67IRpxIU7wnyqbd3GiHDDPl45M966jtcD8nEZQGvLl9qOHBtR2vnc2Zam5vAv',
-            'client_secret': 'EIPM1Jfok7i5oGWZKlOtR_EdD6biZT66BH_JadSc2yNVPBXMe2kEIQxf8Kc0w9TULvNw90HVttODrDcS'
+            'client_id': process.env.PAYPAL_CLIENT_ID,
+            'client_secret': process.env.PAYPAL_CLIENT_SECRET
         });
 
         let create_payment_json = {
