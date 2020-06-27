@@ -1,0 +1,71 @@
+<div id="dashboard">
+    <div class="row">
+        <% let data = JSON.stringify(graphData) %>
+        <div class="graphData" data-graph="<%= data %>"></div>
+
+        <!-- School Graph -->
+        <div class="col-12 col-md-6 col-lg-6 col-xl-6 chart-wrapper">
+            <div class="card">
+                <div class="card-body">
+                    <div class="chart-title">
+                        <h4>By School</h4>
+                        <div class="float-right">
+                        </div>
+                    </div>
+                    <canvas id="schoolGraph"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Country Graph -->
+        <div class="col-12 col-md-6 col-lg-6 col-xl-6 chart-wrapper">
+            <div class="card">
+                <div class="card-body">
+                    <div class="chart-title">
+                        <h4>By Country</h4>
+                        <div class="float-right">
+                        </div>
+                    </div>
+                    <canvas id="countryGraph"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- City Graph -->
+        <div class="col-12 col-md-6 col-lg-6 col-xl-6 chart-wrapper">
+            <div class="card">
+                <div class="card-body">
+                    <div class="chart-title">
+                        <h4>By City</h4>
+                    </div>
+                    <canvas id="cityGraph"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Level Graph -->
+        <div class="col-12 col-md-6 col-lg-6 col-xl-6 chart-wrapper">
+            <div class="card">
+                <div class="card-body">
+                    <div class="chart-title">
+                        <h4>By Level</h4>
+                    </div>
+                    <canvas id="levelGraph"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sex Graph -->
+        <div class="col-12 col-md-6 col-lg-6 col-xl-6 chart-wrapper">
+            <div class="card">
+                <div class="card-body">
+                    <div class="chart-title">
+                        <h4>By Sex</h4>
+                    </div>
+                    <canvas id="sexGraph"></canvas>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

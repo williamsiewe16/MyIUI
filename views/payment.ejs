@@ -1,0 +1,135 @@
+<%- include('templates/header') %>
+
+<body class="center">
+<div class="spinner-border"></div>
+<div class="contenu">
+    <div class="body-page js-fullheight js-fullwidth"></div>
+    <div class="bloc">
+        <p style="font-size: 170%">Bienvenue sur votre espace personnel</p>
+        <div class="page_title">
+            <div>
+                <p><span style="font-weight: bold"><%= candidate.name+" "+candidate.surname %></span> <br/>Candidature du: <%=
+                    new Intl.DateTimeFormat('fr-FR',{year: "numeric", month: "numeric", day: "numeric",
+                        hour: "numeric", minute: "numeric", second: "numeric",
+                        hour12: false}).format(candidate.applications[candidate.applications.length-1].creationDate)
+                    %>  <br/><br/>
+                    <a href="../admission/sessionDestroy" class="btn btn-warning btn-sm">Déconnexion</a>
+                </p>
+            </div>
+            <div class="info_admin">
+                <img src="../assets/images/logo.jpg" width="20%" height="40%"/><br/>
+                <span>Email: <%= process.env.email %></span>
+                <span>Tel: <%= process.env.number %></span>
+            </div>
+        </div>
+        <div class="page_payment">
+            <div class="accordion" id="accordionExample">
+
+                <!-- PayPal -->
+                <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            PayPal
+                            <img class="paymentLogo" src="../assets/images/paypal.png" alt="PayPal" />
+                        </button>
+                    </h2>
+                </div>
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <form method="post" action="/admission/payment" class="paymentForm">
+                            <input type="hidden" name="token" value="<%=token%>"/>
+                            <p>Après avoir validé votre commande vous serez redirigé vers la page de connexion Paypal.</p>
+                         <div class="bill">
+                             <% let percentage = 5/100, total = fees*(1+percentage), currency="USD"  %>
+                             <div class="bill-item">
+                                 <span>Traitement de dossier</span>
+                                 <span><%= fees +" "+ currency%></span>
+                             </div>
+                             <hr/>
+                             <div class="bill-item">
+                                 <span>Frais de paiement</span>
+                                 <span><%= fees*percentage +" "+ currency%></span>
+                             </div>
+                             <hr/>
+                             <div class="bill-item">
+                                 <b>Total</b>
+                                 <span><%= total +" "+ currency%></span>
+                             </div>
+                         </div>
+                            <input type="hidden" name="paymentMethod" value="PayPal"/>
+                            <input type="submit" value="Valider le paiement" class="btn btn-primary"/>
+                        </form>
+                        <div class="security"><i class="fa fa-lock"></i> Paiement 100% sécurisé</div>
+
+                    </div>
+                </div>
+            </div>
+
+                <!-- Bank Deposit -->
+            <div class="card">
+                <div class="card-header" id="headingTwo">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Paiement à la banque
+                        </button>
+                    </h2>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <form method="post" action="/admission/payment" class="paymentForm">
+                            <input type="hidden" name="token" value="<%=token%>"/>
+                            <div style="color: black">
+                                <span>Vous devez verser la somme de <%= fees +" "+ currency %> dans le compte de l'institut</span>
+                                <div><b>N° de compte</b>: <%= accountNumber %></div>
+                            </div>
+                            <div class="upload-file">
+                                <% let paymentInfo = candidate.applications[candidate.applications.length-1].paymentInfo%>
+                                <div class="document">
+                                    <span class="title"><%= receipt.title %></span><br/>
+                                    <span class="subtitle"></span>
+                                    <div class="document_file">
+                                        <a target="_blank" href='<%= paymentInfo != undefined ?
+                                                paymentInfo.proof != undefined ?
+                                                        server+"/"+paymentInfo.proof.path: "javascript:void(0)" : "javascript:void(0)" %>'><i class="fa <%= receipt.icon %>"></i></a>
+                                        <div>
+                                            <div class="filenames"><%=  paymentInfo != undefined ?
+                                                        paymentInfo.proof != undefined ?
+                                                                paymentInfo.proof.name: "" : ""%></div>
+                                            <a href="javascript:void(0)"><div class="modify-button">MODIFIER</div></a>
+                                            <input accept="application/pdf, image/*" class="file_" type="file" name="receipt" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="hidden" name="paymentMethod" value="BD"/>
+                            <input type="submit" value="Valider" class="btn btn-primary" id="DC"/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingThree">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Orange Money / Mobile Money
+                            <div>
+                                <img class="paymentLogo" src="../assets/images/om.png" alt="OM" />
+                                <img class="paymentLogo" src="../assets/images/momo.png" alt="MOMO" />
+                            </div>
+                        </button>
+                    </h2>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                    <div class="card-body">
+                        Bientôt disponible
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div id="snackbar"></div>
+</div>
+
+<%- include('templates/footer') %>

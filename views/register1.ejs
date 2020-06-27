@@ -1,0 +1,200 @@
+<%- include('templates/header') %>
+
+<body class="center" id="page_body">
+   <div class="spinner-border"></div>
+   <div class="wrapper1 contenu">
+       <form class="inscription-form" id="wizard">
+        <!-- SECTION 1 -->
+        <h2></h2>
+        <section style="background-color: red">
+            <div class="inner">
+                <div class="image-holder">
+                    <img src="../assets/images/campus.jpg" alt="" class="backRegisterImage">
+                </div>
+                <div class="form-content" >
+                    <div class="form-header">
+                        <h3>INSCRIPTION</h3>
+                    </div>
+                    <p>Remplissez les champs avec vos infomations</p>
+                    <div class="form-row1">
+
+                        <!-- Name -->
+                        <div class="form-holder" data-validate = "Entrez le nom">
+                            <input name="name_inscription" type="text" placeholder="Nom" class="form-control2" required>
+                            <span class="input-error"></span>
+                        </div>
+
+                        <!-- Surname -->
+                        <div class="form-holder" data-validate = "Entrez le prénom">
+                            <input name="surname_inscription" type="text" placeholder="Prénom" class="form-control2" required>
+                            <span class="input-error"></span>
+                        </div>
+                    </div>
+                    <div class= "form-row1">
+                        <!-- BirthDate -->
+                        <div class="form-holder" data-validate = "Entrez la date de naissance">
+                            <input name="birthDate_inscription" type="date" placeholder="Date de naissance" class="form-control2" required>
+                            <span class="input-error"></span>
+                        </div>
+
+                        <!-- Number -->
+                            <!-- Country code -->
+                            <div class="select form-holder">
+                                <div class="form-holder">
+                                    <div class="select-control country-code"><img src="../assets/images/cameroon.png"/><span>+237</span></div>
+                                    <i class="zmdi zmdi-caret-down"></i>
+                                </div>
+                                <ul class="dropdown">
+                                    <li rel="+237" country="cameroon"><img src="../assets/images/cameroon.png"/><span>+237</span></li>
+                                    <li rel="+242" country="republic"><img src="../assets/images/republic.png"/><span>+242</span></li>
+                                    <li rel="+243" country="democratic"><img src="../assets/images/democratic.png"/><span>+243</span></li>
+                                    <li rel="+236" country="central"><img src="../assets/images/central.png"/><span>+236</span></li>
+                                    <li rel="+241" country="gabon"><img src="../assets/images/gabon.png"/><span>+241</span></li>
+                                    <li rel="+235" country="chad"><img src="../assets/images/chad.png"/><span>+235</span></li>
+                                </ul>
+                            </div>
+                            <div class="" data-validate = "Entrez le numéro">
+                                <input name="number_inscription" type="tel" placeholder="telephone" class="form-control2" required>
+                                <span class="input-error"></span>
+                            </div>
+                    </div>
+                    <div class="form-row1">
+                        <!-- Sex -->
+                        <div class="form-holder" style="align-self: flex-end; transform: translateY(4px);">
+                            <div class="checkbox-tick">
+                                <label class="male">
+                                    <input type="radio" name="gender_inscription" value="M" checked> Homme<br>
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="female">
+                                    <input type="radio" name="gender_inscription" value="F"> Femme<br>
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2 -->
+        <h2></h2>
+        <section>
+            <div class="inner">
+                <div class="image-holder">
+                    <img src="../assets/images/campus.jpg" alt="" class="backRegisterImage">
+                </div>
+                <div class="form-content">
+                    <div class="form-header">
+                        <h3>INSCRIPTION</h3>
+                    </div>
+                    <p>Remplissez les champs avec vos infomations</p>
+                    <div class="form-row1">
+
+                        <!-- Country -->
+                        <div class="select form-holder">
+                            <div class="form-holder">
+                                <div class="country select-control">Votre pays</div>
+                                <i class="zmdi zmdi-caret-down"></i>
+                            </div>
+                            <ul class="dropdown">
+                                <li rel="Cameroun" country="cameroon"><img src="../assets/images/cameroon.png"/><span>Cameroun</span></li>
+                                <li rel="RDC" country="democratic"><img src="../assets/images/democratic.png"/><span>RDC</span></li>
+                                <li rel="Congo-brazzaville" country="republic"><img src="../assets/images/republic.png"/><span>Congo-brazzaville</span></li>
+                                <li rel="Tchad" country="chad"><img src="../assets/images/chad.png"/><span>Tchad</span></li>
+                                <li rel="République centrafricaine" country="central"><img src="../assets/images/central.png"/><span>République Centrafricaine</span></li>
+                                <li rel="Gabon" country="gabon"><img src="../assets/images/republic.png"/><span>Gabon</span></li>
+                            </ul>
+                        </div>
+
+                        <!-- City -->
+                        <div class="form-holder" data-validate = "Entrez votre ville de résidence">
+                            <input name="city_inscription" type="text" placeholder="Ville de résidence" class="form-control2" required>
+                            <span class="input-error"></span>
+                        </div>
+                    </div>
+                    <div class="form-row1">
+
+                        <!-- Level -->
+                        <div class="select form-holder">
+                            <div class="form-holder">
+                                <div class="level select-control">Niveau</div>
+                                <i class="zmdi zmdi-caret-down"></i>
+                            </div>
+                            <ul class="dropdown">
+                                <li rel="Terminale">Terminale</li>
+                                <li rel="BAC">BAC</li>
+                                <li rel="GCE A/L">GCE A/L</li>
+                                <li rel="BAC+1">BAC+1</li>
+                                <li rel="BAC+2">BAC+2</li>
+                                <li rel="BAC+3">BAC+3</li>
+                            </ul>
+                        </div>
+
+                        <!-- Last School -->
+                        <div class="form-holder" data-validate = "Entrez votre dernier établissement">
+                            <input name="lastSchool_inscription" type="text" placeholder="Dernier établissement" class="form-control2" required>
+                            <span class="input-error"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3 -->
+        <h2></h2>
+        <section>
+            <div class="inner">
+                <div class="image-holder">
+                    <img src="../assets/images/campus.jpg" alt="" class="backRegisterImage">
+                </div>
+                <div class="form-content">
+                    <div class="form-header">
+                        <h3>INSCRIPTION</h3>
+                    </div>
+                    <p>Infomations d'authentification</p>
+                    <div class="form-row1">
+
+                        <!-- Email -->
+                        <div class="form-holder" data-validate = "Entrez l'email">
+                            <input name="email_inscription" type="text" placeholder="Email" class="form-control2" required>
+                            <span class="input-error"></span>
+                        </div>
+                    </div>
+                    <div class="form-row1">
+
+                        <!-- Mot de passe -->
+                        <div class="form-holder" data-validate = "Entrez le mot de passe">
+                            <input name="password_inscription" type="password" placeholder="Mot de passe" class="form-control2" required>
+                            <span class="input-error"></span>
+                        </div>
+                    </div>
+
+                    <!-- Password Instructions -->
+                    <div style="font-size: 12px" id="password_instructions" class="m-b-16">
+                        <span>Pour votre sécurité, utilisez un mot de passe contenant:</span>
+                        <ul>
+                            <li>Au moins 8 caractères <i class="fas fa-check"></i></li>
+                            <li>Au moins une lettre majuscule <i class="fas fa-check"></i></li>
+                            <li>Au moins un chiffre <i class="fas fa-check"></i></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+           <div class="text-center p-t-25" style="font-weight: bold">
+						<span class="txt1">
+							Déjà un compte?
+						</span>
+
+               <a class="txt2" href="./login">
+                   Connectez-vous
+               </a>
+           </div>
+    </form>
+       <div id="snackbar"></div>
+   </div>
+
+   <%- include('templates/footer') %>
+

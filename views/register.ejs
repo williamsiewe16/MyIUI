@@ -1,0 +1,105 @@
+<%- include('templates/header') %>
+
+<body class="login-body center">
+<div class="spinner-border"></div>
+    <div class="wrap-login101 contenu js-fullheight">
+        <div class="zone2"></div>
+        <div class="zone">
+            <form class="login101-form inscription-form">
+                <div class="login100-form-title p-b-26">
+                    <img class="logo rounded-circle img-thumbnail" src="../assets/images/logo.jpg" alt="Logo du BDE" title="logo du BDE" width="30%" height="30%" class="d-inline-block align-top">
+                </div>
+                <div class="login100-form-title p-b-32">Inscription</div>
+
+                <div class="row">
+                    <!-- Name -->
+                    <div class="col-sm-6">
+                        <div class="wrap-input100 validate-input" data-validate = "Entrez le nom">
+                            <input class="input100" type="text" name="name_inscription">
+                            <span class="focus-input100" data-placeholder="Nom"></span>
+                        </div>
+                        <div class="name_error input-error"></div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <!-- Surname -->
+                        <div class="wrap-input100 validate-input" data-validate = "Entrez le prénom">
+                            <input class="input100" type="text" name="surname_inscription">
+                            <span class="focus-input100" data-placeholder="Prénom"></span>
+                        </div>
+                        <div class="surname_error input-error"></div>
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div class="wrap-input100 validate-input" data-validate = "Entrez l'email">
+                    <input class="input100" type="email" name="email_inscription">
+                    <span class="focus-input100" data-placeholder="Email"></span>
+                </div>
+                <div class="email_error input-error"></div>
+
+                <!-- Number -->
+                <div style="display: flex">
+                    <select class="form-control1" style="flex: 0.31; position: relative; top: 5px">
+                        <option value="+237" class="form-control1"><img src="../assets/images/cameroon-flag-icon-32.png"/>+237</option>
+                        <option value="+235" class="form-control1">+235</option>
+                        <option value="+242" class="form-control1">+242</option>
+                        <option value="+243" class="form-control1">+243</option>
+                    </select>
+                    <div style="flex: 0.69">
+                        <div class="wrap-input100 validate-input" data-validate = "Entrez le numéro">
+                            <input class="input100" type="tel" name="number_inscription">
+                            <span class="focus-input100" data-placeholder="Numéro de téléphone"></span>
+                        </div>
+                        <div class="number_error input-error"></div>
+                    </div>
+                </div>
+
+                <!-- Password -->
+                <div class="wrap-input100 validate-input" data-validate="Entrez le mot de passe">
+						<span class="btn-show-pass">
+							<i class="zmdi zmdi-eye"></i>
+						</span>
+                    <input class="input100" type="password" name="password_inscription">
+                    <span class="focus-input100" data-placeholder="Password"></span>
+                </div>
+                <div class="password_error input-error"></div>
+
+                <!-- Password Instructions -->
+                <div id="password_instructions" class="m-b-16">
+                    <span>Pour votre sécurité, utilisez un mot de passe contenant:</span>
+                    <ul>
+                        <li>Au moins 8 caractères <i class="fas fa-check"></i></li>
+                        <li>Au moins une lettre majuscule <i class="fas fa-check"></i></li>
+                        <li>Au moins un chiffre <i class="fas fa-check"></i></li>
+                    </ul>
+                </div>
+
+                <div class="container-login100-form-btn">
+                    <div class="wrap-login100-form-btn">
+                        <div class="login100-form-bgbtn"></div>
+                        <button class="login100-form-btn">
+                            <span class="spinner-grow text-warning" id="loading"></span>
+                            Valider
+                        </button>
+                    </div>
+                </div>
+
+                <div class="text-center p-t-25">
+						<span class="txt1">
+							Déjà un compte?
+						</span>
+
+                    <a class="txt2" href="./login">
+                        Connectez-vous
+                    </a>
+                </div>
+            </form>
+        </div>
+</div>
+    <div id="snackbar"></div>
+
+
+    <div id="dropDownSelect1"></div>
+
+<%- include('templates/footer') %>

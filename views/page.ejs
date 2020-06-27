@@ -1,0 +1,85 @@
+<%- include('templates/header') %>
+
+<body class="center" id="page_body">
+   <div class="spinner-border"></div>
+   <div class="contenu">
+       <div class="body-page js-fullheight js-fullwidth"></div>
+       <div class="bloc">
+           <p style="font-size: 170%">Bienvenue sur votre espace personnel</p>
+           <div class="page_title">
+               <% let application = candidate.applications[candidate.applications.length-1] %>
+               <div>
+                   <p style="font-size: 14px"><span style="font-weight: bold"><%= candidate.name+" "+candidate.surname %></span> <br/>Candidature du: <%=
+                       new Intl.DateTimeFormat('fr-FR',{year: "numeric", month: "numeric", day: "numeric",
+                           hour: "numeric", minute: "numeric", second: "numeric",
+                           hour12: false}).format(application.creationDate)
+                       %>  <br/><br/>
+                       <a href="../admission/sessionDestroy" class="btn btn-warning btn-sm">Déconnexion</a>
+                   </p>
+               </div>
+               <div class="info_admin">
+                 <img src="../assets/images/logo.jpg" width="20%" height="40%"/><br/>
+                 <span>Email: <%= process.env.email %></span>
+                 <span>Tel: <%= process.env.number %></span>
+               </div>
+           </div>
+           <div class="page_documents">
+               <p>
+                   Vous pouvez nous envoyer les pièces nécessaires à la constitution de votre dossier<br/>
+                   <span style="text-decoration: underline">N.B:</span> Seuls les fichiers <b style="color: black">images</b> et <b style="color: black">pdf</b> sont acceptés
+                   <!-- Les formats de fichier acceptés sont: <b style="color: black">pdf, jpg, jpeg, png</b> -->
+               </p>
+               <form enctype="multipart/form-data" class="document_form" method="get" action="/admission/payment">
+                   <input type="hidden" name="token" value="<%=token%>"/>
+                   <input type="hidden" name="cycle" value=""/>
+                   <%
+                   let documents = application.documents
+                   let cycle = application.cycle == "1st" ? 0 : 1
+                   if(application.submissionDate == undefined){ %>
+                   <div class="choices">
+                       <span id="choice0"><a href="#" class="choice <%= cycle==0 ? 'active-choice' : "" %>" value="0" data-target="1st cycle">1er cycle</a></span>
+                       <div class="swiper"></div>
+                       <span id="choice1"><a href="#" class="choice <%= cycle==1 ? 'active-choice' : "" %>" value="1" data-target="2nd cycle">2e cycle</a></span>
+                   </div>
+                   <%}%><br/>
+                   <div class="documents">
+                       <%
+                       docs_1 = formFieldTabs[cycle]
+
+                   docs_1.forEach(doc => {%>
+                       <% let doc_ = documents.filter(mydoc => mydoc.code == doc.name) %>
+                       <div class="document">
+                           <span class="title"><%= doc.title %></span><br/>
+                           <span class="subtitle"><%= doc.subtitle %></span>
+                           <div class="document_file">
+                               <a target="_blank" href="<%= doc_.length == 0 ? 'javascript:void(0)' : server+"/"+doc_[0].path %>"><i class="<%= 'fa '+ doc.icon %>"></i></a>
+                               <div>
+                                   <div class="filenames"><%= doc_.length !=0 ? doc_[0].name : ""%></div>
+                                   <% if(candidate.lockAccount != 1){%>
+                                   <a href="javascript:void(0)" ><div class="modify-button">MODIFIER</div></a>
+                                   <input accept="application/pdf, image/*" class="file_" type="file" name="<%= doc.name %>" />
+                                   <%}%>
+                               </div>
+                           </div>
+                       </div>
+                   <% }) %>
+                   </div>
+                   <% if(application.submissionDate == undefined){%>
+                     <div class="submit_documents"><input disabled type="submit" value="Passer au paiement" class="btn btn-info btn-sm"/></div>
+                   <%}%>
+                   <% if(application.submissionDate != undefined && candidate.lockAccount == 0){%>
+                       <a href="javascript:void(0)" class="submit_documents">
+                           <button class="btn btn-info btn-sm validate-application">
+                               soumettre
+                           </button>
+                       </a>
+                   <%}%>
+               </form>
+           </div>
+
+       </div>
+       <div id="snackbar"></div>
+   </div>
+
+
+<%- include('templates/footer') %>

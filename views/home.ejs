@@ -1,0 +1,39 @@
+<%- include('templates/header') %>
+
+<body class="center" id="page_body">
+<div class="spinner-border"></div>
+<div class="contenu">
+    <img class="backHomePage js-midHeight js-fullwidth"  src="../assets/images/fond.jpg"/>
+    <div class="homePageZone js-midHeight">
+        <div class="homeButtons">
+
+            <% if(status != undefined){%>
+            <% if(status == -1){%>
+            <a href="/admission/register" ><div class="homeButton">Inscription</div></a>
+            <a href="/admission/login" ><div class="homeButton homeButtonLogin">Connexion</div></a>
+            <%} else {%>
+                    <a href="/admission/page" >
+                        <div class="homeButton homeButtonLogin" style="width: 300px">
+                            <%= status == 0 ? "Accédez à votre espace personnel" : "Accédez à l'interface d'administration" %>
+                        </div>
+                    </a>
+            <%}%>
+            <%}%>
+        </div>
+
+
+        <img src="../assets/images/logo.jpg" width="100px" height="100px" />
+        <div style="margin: 20px">Bienvenue sur <span style="color:  rgb(244,146,13); font-style: italic; font-weight: bold">MyIUI</span>, la plateforme d'inscription aux concours de l'ucac-icam.<br/>
+            <% if(status == undefined){%>
+                <span style="font-weight: bold; font-style: italic">Les inscriptions sont fermées pour le moment</span>
+            <%}%>
+        </div>
+    </div>
+
+    <%if(paid){%>
+    <div id="snackbar" class="snack"></div>
+    <%}%>
+</div>
+
+<%- include('templates/footer') %>
+

@@ -1,0 +1,236 @@
+
+
+/* Polices*/
+
+@font-face {
+    font-family: 'montserratregular';
+    src: url('../../assets/fonts/montserrat-regular-webfont.woff2') format('woff2'),
+         url('../../assets/fonts/montserrat-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: normal;
+    src: url('../../assets/fonts/Rubik/rubik-Regular.woff');
+}
+
+@font-face
+{
+    font-family: 'BallparkWeiner';
+    src: url('../../assets/fonts/ballpark.eot');
+    src: url('../../assets/fonts/ballpark.eot?#iefix') format('embedded-opentype'),
+         url('../../assets/fonts/ballpark.woff') format('woff'),
+         url('../../assets/fonts/ballpark.ttf') format('truetype'),
+         url('../../assets/fonts/ballpark.svg#BallparkWeiner') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body{
+  font-family: 'montserratregular','Rubik',sans-serif;
+}
+
+.center{
+    display: flex;
+  justify-content: center;
+    align-items: center;
+}
+
+.contenu{
+    display: none;
+}
+
+.body-page{
+    z-index: 1;
+    position: fixed;
+    background-image: url(../../assets/images/fond.jpg);
+    filter: brightness(50%);
+}
+
+.bloc{
+    top: 2%;
+    left: 50%;
+    transform: translate(-50%,0);
+    width: 75%;
+    position: absolute;
+    z-index: 2;
+    padding: 1% 6% 1% 6%;
+    background-color: white;
+    border-radius: 3px;
+    box-shadow:  0 5px 10px 0px rgba(0, 0, 0, 1);
+}
+
+.page_title{
+    display: flex;
+    justify-content: space-between;
+}
+
+.info_admin{
+    font-size: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.page_documents{
+    margin-top: 0%;
+}
+
+.page_documents p{
+    font-size: 90%;
+}
+
+/* Document */
+
+.document{
+    background-color: rgb(240,240,240);
+    padding: 1.5%;
+    width: 60%;
+    margin-bottom: 1%;
+}
+
+.document .title {
+   font-size: 110%;
+    font-weight: bold;
+    color: black;
+}
+
+.document .subtitle{
+    color: darkgrey;
+    font-size: 80%;
+}
+
+.document_file {
+    margin-top: 3%;
+    display: flex;
+}
+
+.document_file i {
+    font-size: 250%;
+    color: #ff6800; width: 50px;
+}
+
+.document_file div {
+    flex: 1; display: flex; justify-content: space-between;
+}
+
+.document_file div .filenames{
+    margin-right: 3%; font-size: 0.87em; color: black;
+    word-break: break-word;
+}
+
+.document_file div input{
+     display: none;
+}
+
+.document_file div a{
+   display:  flex; align-items: center;
+}
+
+.document_file div .modify-button{
+    background-color: rgb(240,240,240);
+    width: 150px; border-radius: 3px; color: black; font-weight: bold;
+    justify-content: center; align-items: center; display: flex;
+    box-shadow: 1.5px 1.5px 1.5px 1.5px rgba(0,0,0,0.3); height: 30px ; font-size: 12px;
+    transition: filter 0.5s;
+}
+.document_file div .modify-button:hover{
+   filter: brightness(90%);
+    box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.3)
+}
+.document_file div .modify-button:focus{
+}
+
+
+.submit_documents{
+    margin: 20px 0px;
+   display: flex;
+    justify-content: flex-end;
+}
+
+
+/* choices */
+
+.choices{
+    border: 2px solid darkorange; position: relative; padding: 0% 10px;
+    display: flex; justify-content: space-between; align-items: center;
+   border-radius: 20px; width: 180px; height: 35px;
+}
+
+.swiper{
+    background-color: orange; width: 90px; height: 35px; border-radius: 2px 20px 20px 2px;
+    position: absolute; left: 90px; z-index: 1;
+    transition: left 0.5s;
+}
+
+.choices span {z-index: 2}
+.choices span .choice {text-decoration: none; color: red; font-weight: bold}
+.active-choice{ color: white}
+
+
+@media screen and (max-width: 992px)
+{
+    .bloc{
+        width: 85%;
+    }
+
+    .document{
+        width: 70%
+    }
+
+    .document .subtitle{
+        font-size: 75%;
+    }
+}
+
+@media screen and (max-width: 600px)
+{
+    .bloc{
+        width: 95%;
+    }
+
+    .document{
+        width: 100%
+    }
+    .document .subtitle{
+        font-size: 70%;
+    }
+}
+
+
+
+/* HomePage */
+.backHomePage{
+    filter: brightness(35%);
+}
+
+.homePageZone{
+    background-color: white; display: flex; flex-direction: column;
+    justify-content: center; align-items: center;  color: black;
+}
+
+.homeButtons{
+    position: absolute; opacity: 0;
+    display: flex; justify-content: center;
+}
+
+
+
+.homeButtonLogin{
+  background-color: rgb(244,146,13) !important;
+}
+
+.homeButton{
+    margin-right: 30px;
+    background-color: white;
+    width: 130px; border-radius: 3px; color: black; font-weight: bold;
+    justify-content: center; align-items: center; display: flex;
+    height: 30px ; font-size: 13px;
+    transition: filter 0.5s;
+}
+.homeButton:hover{
+    filter: brightness(75%);
+}
